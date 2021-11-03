@@ -27,23 +27,33 @@ Table of instructions for register storage:
 
 | Store | in t | in u | in l | in i |
 |-------|------|------|------|------|
-| t     |      | U    | L    | I    |
-| u     | u    |      | M    | J    |
-| l     | l    | m    |      | K    |
-| i     | i    | j    | k    |      |
+| **t** |      | U    | L    | I    |
+| **u** | u    |      | M    | J    |
+| **l** | l    | m    |      | K    |
+| **i** | i    | j    | k    |      |
 
 ## Indirect register storage instructions
 
 Memory at an address in l can be stored in t, and it can also be written to by data from another register. Since memory locations are in bytes, each instruction has a 4 byte version and a 1 byte (least significant byte) version.
+
 ### 4 bytes
+
 `\` - store memory at l into t
+
 `<` - write t to memory at l
+
 `=` - write u to memory at l
+
 `[` - write i to memory at l
+
 ### 1 byte
+
 `\`` - store memory at l into t
+
 `@` - write t to memory at l
+
 `A` - write u to memory at l
+
 `\_` - write i to memory at l
 
 Code is stored in memory starting at address 0.
