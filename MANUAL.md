@@ -6,13 +6,13 @@ Tuli is a machine code language based on base -2 integers and a few instructions
 
 Tuli has 4 32-bit base -2 registers: referred to as t, u, l, i.
 
-**t** - Transfer register: for storing data to be transferred to other registers.
-
-**u** - Useless register: register with no particular purpose.
-
-**l** - Location register: stores a location in memory to read/write.
-
-**i** - Instruction register: stores the address of the next instruction to be run. Increments (arithmetically) after each instruction.
+- **t** - Transfer register: for storing data to be transferred to other registers.
+ 
+- **u** - Useless register: register with no particular purpose.
+ 
+- **l** - Location register: stores a location in memory to read/write.
+ 
+- **i** - Instruction register: stores the address of the next instruction to be run. Increments (arithmetically) after each instruction.
 
 All registers are initialized to 0.
 
