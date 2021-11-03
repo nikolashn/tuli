@@ -48,7 +48,7 @@ Memory at an address in l can be stored in t, and it can also be written to by d
 
 ### 1 byte
 
-` \` ` - store memory at l into t
+`` ` `` - store memory at l into t
 
 `@` - write t to memory at l
 
