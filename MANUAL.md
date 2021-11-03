@@ -48,7 +48,7 @@ Memory at an address in l can be stored in t, and it can also be written to by d
 
 ### 1 byte
 
-`\`` - store memory at l into t
+` ` ` - store memory at l into t
 
 `@` - write t to memory at l
 
@@ -63,22 +63,31 @@ Code is stored in memory starting at address 0.
 Single register data operations are all performed on t.
 
 `c` (in**c**rement) - Perform a bitwise (not arithmetic) increment on t.
+
 e.g. t:1011010 (70) -> t:1011011 (71), however t:1011011 (71) -> t:1011100 (74), rather than t:1011110 (72)
+
 `r` (**r**otate) - Rotate the bits of t right.
+
 e.g. t:1011010 (70) -> t:101101 (-35) -> t:10000000000000000000000000010110 (-2147483630)
+
 `v` (in**v**ert) - Ignoring leading zeros, invert the bits of t.
+
 e.g. t:1011010 (70) -> t:100101 (-27)
 
 ## Double register data operations
 
 `f` (**f**ire instruction) - Perform a bitwise NOR between t and the bits of l after the bits of l are reversed, and store the result in t: **F**lip bits of l, **I**nverted O**R** into t, **E**nd.
+
 e.g. t:1011010 (70), l:11101101 (-99) -> t:00010010111111111111111110100101 (229288549)
+
 `s` (**s**wap instruction) - Swap the data in t and l.
+
 e.g. t:1011010 (70), l:11101101 (-99) -> t:11101101 (-99)
 
 ## I/O operations
 
 `o` (**o**utput) - Write the last 9 bits of t as an ASCII character to standard output.
+
 e.g. t:1011010 (70) -> (outputs "F", i.e. char 70)
 
 ## No-ops
