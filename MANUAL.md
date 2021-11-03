@@ -54,7 +54,7 @@ Memory at an address in l can be stored in t, and it can also be written to by d
 
 `A` - write u to memory at l
 
-`\_` - write i to memory at l
+`_` - write i to memory at l
 
 Code is stored in memory starting at address 0.
 
