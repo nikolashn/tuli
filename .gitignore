@@ -1,0 +1,3 @@
+tuli
+tests/*
+!tests/*.tuli
