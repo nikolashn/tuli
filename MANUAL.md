@@ -26,7 +26,7 @@ If a Tuli program does not reach a termination instruction, it will keep running
 Table of instructions for register storage:
 
 | Store | in t | in u | in l | in i |
-|-------|------|------|------|------|
+| ----- | ---- | ---- | ---- | ---- |
 | **t** |      | U    | L    | I    |
 | **u** | u    |      | M    | J    |
 | **l** | l    | m    |      | K    |
