@@ -86,6 +86,12 @@ void tuli_Interpreter(struct tuli_Controller* ctr) {
 			case 'm':
 				ctr->regU = ctr->regL;
 				break;
+			case 'n':
+			{
+				unsigned char c = getchar();
+				ctr->regT = tuli_LLToTI(c);
+				break;
+			}
 			case 'o':
 				putchar( tuli_TIToLL(ctr->regT) & 0xff );
 				break;

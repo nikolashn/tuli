@@ -90,6 +90,8 @@ e.g. t:1011010 (70), l:11101101 (-99) -> t:11101101 (-99)
 
 e.g. t:1011010 (70) -> (outputs "F", i.e. char 70)
 
+`n` (i**n**put) - Read a character from standard input into t.
+
 ## No-ops
 
 The standard no-op is `.`. Every other instruction not listed in this manual is a no-op: invalid instructions are skipped rather than leading to a crash.
