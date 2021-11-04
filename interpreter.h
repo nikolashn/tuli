@@ -6,26 +6,34 @@
 #include "common.h"
 #include "controller.h"
 
+void tuli_SetMem4B(struct tuli_Controller* ctr, tuli_Int bytes) {
+	long long start = tuli_TIToLL(ctr->regL);
+	*tuli_GetMem(ctr, start) = (unsigned char)(bytes & 0xff);
+	bytes >>= 8;
+	*tuli_GetMem(ctr, start+1) = (unsigned char)(bytes & 0xff);
+	bytes >>= 8;
+	*tuli_GetMem(ctr, start+2) = (unsigned char)(bytes & 0xff);
+	bytes >>= 8;
+	*tuli_GetMem(ctr, start+3) = (unsigned char)(bytes & 0xff);
+}
+
 void tuli_Interpreter(struct tuli_Controller* ctr) {
 	while (1) {
 		unsigned char* instr = tuli_GetMem(ctr, tuli_TIToLL(ctr->regI));
 		switch (*instr) {
 			case '<':
-			{
-				long long start = tuli_TIToLL(ctr->regL);
-				tuli_Int tmp = ctr->regT;
-				*tuli_GetMem(ctr, start) = (unsigned char)(tmp & 0xff);
-				tmp >>= 8;
-				*tuli_GetMem(ctr, start+1) = (unsigned char)(tmp & 0xff);
-				tmp >>= 8;
-				*tuli_GetMem(ctr, start+2) = (unsigned char)(tmp & 0xff);
-				tmp >>= 8;
-				*tuli_GetMem(ctr, start+3) = (unsigned char)(tmp & 0xff);
+				tuli_SetMem4B(ctr, ctr->regT);
 				break;
-			}
+			case '=':
+				tuli_SetMem4B(ctr, ctr->regU);
+				break;
 			case '@':
 				*tuli_GetMem(ctr, tuli_TIToLL(ctr->regL)) = 
 					(unsigned char)(ctr->regT & 0xff);
+				break;
+			case 'A':
+				*tuli_GetMem(ctr, tuli_TIToLL(ctr->regL)) = 
+					(unsigned char)(ctr->regU & 0xff);
 				break;
 			case 'I':
 				ctr->regI = ctr->regT;
@@ -45,6 +53,9 @@ void tuli_Interpreter(struct tuli_Controller* ctr) {
 			case 'U':
 				ctr->regU = ctr->regT;
 				break;
+			case '[':
+				tuli_SetMem4B(ctr, ctr->regI);
+				break;
 			case '\\':
 			{
 				long long start = tuli_TIToLL(ctr->regL);
@@ -55,6 +66,10 @@ void tuli_Interpreter(struct tuli_Controller* ctr) {
 					(((tuli_Int)*tuli_GetMem(ctr, start+3)) << 3);
 				break;
 			}
+			case '_':
+				*tuli_GetMem(ctr, tuli_TIToLL(ctr->regL)) = 
+					(unsigned char)(ctr->regI & 0xff);
+				break;
 			case '`':
 				ctr->regT = (tuli_Int)*tuli_GetMem(ctr, tuli_TIToLL(ctr->regL));
 				break;
@@ -93,7 +108,7 @@ void tuli_Interpreter(struct tuli_Controller* ctr) {
 				break;
 			}
 			case 'o':
-				putchar( tuli_TIToLL(ctr->regT) & 0xff );
+				putchar( tuli_TIToLL(ctr->regT) & 0x1ff );
 				break;
 			case 'r':
 				ctr->regT = (ctr->regT >> 1) | (ctr->regT << 31);
