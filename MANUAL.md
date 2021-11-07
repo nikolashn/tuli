@@ -4,7 +4,7 @@ Tuli is a machine code language based on base -2 integers and a few instructions
 
 ## Registers
 
-Tuli has 4 32-bit base -2 registers: referred to as t, u, l, i.
+Tuli has four 32-bit base -2 registers: referred to as t, u, l, i.
 
 - **t** - Transfer register: for storing data to be transferred to other registers.
  
