@@ -12,3 +12,15 @@ cccccccocccolcccccccccccccccccccccccoucrrrcrrcrcrrrrrrrrrrrrrrrrrrrrrrrroucrrrrr
 rrrrrrrrrrrrroucrcrcrcrrrrrrrrrrrrrrrrrrrrrrrrrrrrot
 ```
 
+## Installation
+
+Requires GNU make and a C compiler. Modify config.mk to change the C compiler and C compiler flags.
+Run `make install` as root.
+
+## Documentation
+
+Read MANUAL.md for more extensive documentation.
+
+## Licensing
+
+Tuli is licensed under the GNU General Public License v3.0.
