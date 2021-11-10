@@ -23,4 +23,4 @@ Read MANUAL.md for more extensive documentation.
 
 ## Licensing
 
-Tuli is licensed under the GNU General Public License v3.0.
+Tuli is licensed under the GNU General Public License v3.0 or later.
